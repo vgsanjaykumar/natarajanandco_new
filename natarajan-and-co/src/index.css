@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───────────── Design tokens ─────────────
+   Brand identity stays yellow + black (as on the existing site); surfaces
+   are warm off-white in light mode and near-black in dark mode. */
+:root {
+  --c-bg: 250 249 245;
+  --c-card: 255 255 255;
+  --c-sunken: 243 241 234;
+  --c-ink: 15 17 21;
+  --c-soft: 62 66 74;
+  --c-mute: 104 109 118;
+  --c-line: 226 223 214;
+  --c-night: 14 15 18;
+  --c-brandtext: 122 96 0;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --c-bg: 12 13 16;
+  --c-card: 22 24 29;
+  --c-sunken: 28 30 36;
+  --c-ink: 244 243 238;
+  --c-soft: 192 195 202;
+  --c-mute: 144 149 159;
+  --c-line: 44 47 55;
+  --c-night: 7 8 10;
+  --c-brandtext: 255 229 0;
+  color-scheme: dark;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-bg font-sans text-base text-ink antialiased;
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  img, svg, video { @apply block max-w-full; }
+  h1, h2, h3, h4 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  ::selection { @apply bg-brand text-neutral-900; }
+  :focus-visible { @apply outline outline-2 outline-offset-2 outline-ink; }
+  .on-night :focus-visible { @apply outline-brand; }
+  [hidden] { display: none !important; }
+}
+
+@layer components {
+  /* Layout */
+  .container-x { @apply mx-auto w-full max-w-page px-5 sm:px-8 lg:px-10; }
+  .section { @apply py-16 md:py-24; }
+  .section-tight { @apply py-12 md:py-16; }
+
+  /* Typography scale — one family (Plus Jakarta Sans), clear hierarchy */
+  .t-display { @apply font-extrabold leading-[1.02] tracking-tight; font-size: clamp(2.5rem, 6.2vw, 4.75rem); }
+  .t-h1 { @apply font-extrabold leading-[1.08] tracking-tight; font-size: clamp(2rem, 4.4vw, 3.25rem); }
+  .t-h2 { @apply font-bold leading-[1.14] tracking-tight; font-size: clamp(1.65rem, 3.2vw, 2.5rem); }
+  .t-h3 { @apply text-xl font-bold leading-snug tracking-tight md:text-[1.375rem]; }
+  .t-lead { @apply text-base leading-relaxed text-soft md:text-lg; }
+  .t-body { @apply text-[0.9375rem] leading-7 text-soft md:text-base; }
+  .t-small { @apply text-sm leading-6 text-soft; }
+  .t-caption { @apply text-xs leading-5 text-mute; }
+  .t-product { @apply text-[1.0625rem] font-bold leading-snug tracking-tight; }
+  .t-meta { @apply text-[0.6875rem] font-semibold uppercase tracking-[0.09em] text-mute; }
+
+  .eyebrow { @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-brandtext; }
+  .eyebrow::before { content: ""; @apply h-[3px] w-6 rounded-full bg-brand; }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-5 py-2.5
+      text-sm font-bold leading-none transition duration-200 active:scale-[.98]
+      disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-lg { @apply min-h-[52px] px-6 text-[0.9375rem]; }
+  .btn-sm { @apply min-h-[38px] px-3.5 text-[0.8125rem]; }
+  .btn-primary { @apply bg-brand text-neutral-900 shadow-[0_1px_0_rgb(0_0_0/.08)] hover:bg-brand-dark; }
+  .btn-dark { @apply bg-ink text-bg hover:opacity-90; }
+  .btn-outline { @apply border border-line bg-card text-ink hover:border-ink/40; }
+  .btn-ghost { @apply text-ink hover:bg-ink/5; }
+  .btn-glass { @apply border border-white/25 bg-white/10 text-white backdrop-blur hover:bg-white/20; }
+  .btn-wa { @apply bg-[#1FAF5A] text-white hover:bg-[#189A4E]; }
+
+  /* Surfaces */
+  .card { @apply rounded-2xl border border-line bg-card shadow-card; }
+  .card-hover { @apply transition duration-300 hover:-translate-y-1 hover:shadow-lift; }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-card px-3 py-1.5
+      text-xs font-semibold text-soft transition;
+  }
+  .badge { @apply inline-flex items-center rounded-md bg-brand px-2 py-0.5 text-[0.6875rem] font-extrabold uppercase tracking-wide text-neutral-900; }
+
+  /* Form controls */
+  .label { @apply mb-1.5 block text-sm font-semibold text-ink; }
+  .input {
+    @apply w-full rounded-xl border border-line bg-card px-4 py-3 text-sm text-ink placeholder:text-mute
+      transition focus:border-ink focus:outline-none focus:ring-2 focus:ring-brand;
+  }
+
+  /* Hide scrollbars on snap rows */
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+
+  /* Subtle paper grain-free blueprint grid for dark sections */
+  .bg-grid-night {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / .04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / .04) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+}
+
+/* Scroll reveal (see components/ui/Reveal.jsx) */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease-out, transform .6s cubic-bezier(.2,.7,.2,1); }
+.reveal.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  .reveal { opacity: 1; transform: none; }
+}

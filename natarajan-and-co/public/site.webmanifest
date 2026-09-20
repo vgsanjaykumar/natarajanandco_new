@@ -1,0 +1,13 @@
+{
+  "name": "Natarajan & Co",
+  "short_name": "Natarajan & Co",
+  "description": "Paints, cement and building materials in Karaikudi.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FAF9F5",
+  "theme_color": "#0E0F12",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

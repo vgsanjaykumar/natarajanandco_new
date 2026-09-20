@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0E0F12" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>Paints, Cement &amp; Building Materials in Karaikudi | Natarajan &amp; Co</title>
+    <meta name="description" content="Natarajan &amp; Co, Karaikudi: authorised UltraTech dealer with Birla Opus paints, Birla White, MYK Laticrete, Fosroc, Araldite and Dr Fixit under one roof." />
+    <!--SEO_HEAD-->
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Apply the saved / system theme before first paint (no flash) and skip
+         the splash on repeat visits within a session. -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          document.documentElement.setAttribute("data-theme", t);
+          if (sessionStorage.getItem("splash-seen")) document.documentElement.className += " no-splash";
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Critical CSS for the logo splash: inline, so the logo appears
+         instantly and nothing extra has to be downloaded first. -->
+    <style>
+      #splash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#FAF9F5;color:#0F1115;transition:opacity .5s ease,visibility .5s}
+      html[data-theme="dark"] #splash{background:#0C0D10;color:#F4F3EE}
+      #splash.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
+      .no-splash #splash{display:none}
+      #splash svg{width:72px;height:72px;border-radius:16px;box-shadow:0 12px 40px -12px rgba(0,0,0,.45);animation:sp-in .6s cubic-bezier(.2,.7,.2,1) both}
+      #splash .sp-name{font:800 22px/1.1 "Plus Jakarta Sans Variable","Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.015em;animation:sp-in .6s .12s cubic-bezier(.2,.7,.2,1) both}
+      #splash .sp-sub{font:600 10.5px/1 "Plus Jakarta Sans Variable","Plus Jakarta Sans",system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;opacity:.6;margin-top:-6px;animation:sp-in .6s .2s cubic-bezier(.2,.7,.2,1) both}
+      #splash .sp-bar{width:148px;height:3px;border-radius:3px;background:rgba(127,127,127,.22);overflow:hidden;margin-top:6px}
+      #splash .sp-bar i{display:block;height:100%;background:#FFE500;transform:translateX(-100%);animation:sp-bar 1s .15s cubic-bezier(.6,0,.2,1) forwards}
+      @keyframes sp-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+      @keyframes sp-bar{to{transform:none}}
+      @media (prefers-reduced-motion:reduce){#splash *{animation:none!important}#splash .sp-bar i{transform:none}}
+    </style>
+  </head>
+  <body>
+    <div id="splash" role="presentation" aria-hidden="true">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" focusable="false">
+        <rect width="100" height="100" rx="22" fill="#0E0F12" />
+        <g transform="translate(16.13 17.95) scale(0.1305)">
+          <path fill="#fff" d="M94 31v67l129 1v139l66 66 1-205 135-1V31zM223 326v134h67v-68z" />
+          <path fill="#FFE500" d="M94 147v313h66V213zM359 139l-1 247 67 67V139z" />
+        </g>
+      </svg>
+      <div class="sp-name">Natarajan &amp; Co</div>
+      <div class="sp-sub">UltraTech Building Solutions</div>
+      <div class="sp-bar"><i></i></div>
+    </div>
+    <div id="root"></div>
+    <noscript>
+      <p style="padding:24px;font-family:system-ui,sans-serif">
+        Natarajan &amp; Co, Karaikudi — paints, cement and building materials. Call 04565-401379 or WhatsApp 86674 08717.
+        Open daily 9:00 AM – 8:00 PM. Please enable JavaScript to browse the full catalogue.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
