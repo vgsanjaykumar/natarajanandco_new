@@ -27,6 +27,7 @@ const products = [
       "Consistent local availability in Karaikudi",
     ],
     suitableFor: ["Structural work", "Cement surfaces"],
+     image: "/images/other/ultratech-cement.webp", imageKind: "photo",
     application: "Residential home construction, small and mid-scale commercial buildings, general masonry and structural work.",
     tags: ["cement", "construction", "opc", "building material"],
   }),
@@ -55,7 +56,7 @@ const products = [
     suitableFor: ["Cement surfaces", "Interior walls"],
     application: "Decorative wall and surface finishing, architectural detailing.",
     tags: ["white cement", "finishing", "decorative"],
-    image: "/img/brands/birla-white.webp",
+    image: "/images/other/birla-white-cement.jpg",
   }),
   p({
     slug: "birla-wallcare-putty", name: "Birla White Wallcare Putty", brandSlug: "birla-white", brand: "Birla White",
@@ -67,7 +68,7 @@ const products = [
     suitableFor: ["Interior walls", "Exterior walls"],
     application: "Interior and exterior wall preparation before painting.",
     tags: ["putty", "wall care", "wallcare", "birla white", "smooth wall"],
-    image: "/img/brands/birla-white-wallcare.webp",
+    image: "/images/other/birla-wallcare-putty.webp",
   }),
   p({
     slug: "myk-laticrete-tile-adhesive", name: "MYK Laticrete Tile Adhesive", brandSlug: "myk-laticrete", brand: "MYK Laticrete",
@@ -79,7 +80,7 @@ const products = [
     suitableFor: ["Tiling"],
     application: "Floor and wall tiling, renovation tiling work.",
     tags: ["tile adhesive", "tiling", "myk", "laticrete", "waterproofing"],
-    image: "/img/brands/myk-laticrete.webp",
+    image: "/images/other/myk-laticrete-tile-adhesive.jpg",
   }),
   p({
     slug: "fosroc-construction-chemicals", name: "Fosroc Construction Chemicals", brandSlug: "fosroc", brand: "Fosroc",
@@ -527,6 +528,7 @@ const products = [
     features: ["White interior primer", "Applied after putty in the One system"],
     suitableFor: ["Interior walls"],
     tags: ["primer", "interior", "one", "white primer"],
+    image: "/images/products/birla-opus/one-pro-smooth-primer.webp",
   }),
   opus({
     slug: "birla-opus-calista-perfect-choice-primer", name: "Calista Perfect Choice Primer", category: "primers", subCategory: "Exterior primer",

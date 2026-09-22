@@ -33,8 +33,8 @@ export default function About() {
         <div className="container-x grid items-center gap-10 lg:grid-cols-[.95fr_1.05fr] lg:gap-16">
           <Reveal className="overflow-hidden rounded-3xl shadow-lift">
             <SmartImage
-              src="/img/store-day-1000.webp"
-              srcSet="/img/store-day-640.webp 640w, /img/store-day-1000.webp 1000w, /img/store-day-1360.webp 1360w"
+              src="/img/gallery/shop-12-thumb.webp"
+              // srcSet="/img/store-day-640.webp 640w, /img/store-day-1000.webp 1000w, /img/store-day-1360.webp 1360w"
               sizes="(min-width:1024px) 45vw, 92vw"
               alt="Natarajan & Co store front, Karaikudi"
               width={1000}
