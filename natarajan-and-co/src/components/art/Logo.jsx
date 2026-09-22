@@ -1,15 +1,19 @@
-// Vector recreation of the existing Natarajan & Co "TN" monogram
-// (traced from the original logo files), so it stays sharp on any screen.
+// The Natarajan & Co "N" building mark, on a white tile so it stays legible
+// over both the transparent-dark and scrolled-light navbar states.
+// Source: public/logo/icon.png (square, pre-padded — see that folder's README
+// for how to swap in an updated version).
 
 export function LogoMark({ className = "h-10 w-10" }) {
   return (
-    <svg viewBox="0 0 100 100" className={`shrink-0 rounded-[22%] ${className}`} aria-hidden="true" focusable="false">
-      <rect width="100" height="100" rx="22" fill="#0E0F12" />
-      <g transform="translate(16.13 17.95) scale(0.1305)">
-        <path fill="#fff" d="M94 31v67l129 1v139l66 66 1-205 135-1V31zM223 326v134h67v-68z" />
-        <path fill="#FFE500" d="M94 147v313h66V213zM359 139l-1 247 67 67V139z" />
-      </g>
-    </svg>
+    <span className={`relative inline-block shrink-0 overflow-hidden rounded-[22%] bg-white shadow-sm ring-1 ring-black/10 ${className}`}>
+      <img
+        src="/logo/icon.png"
+        alt=""
+        width={512}
+        height={512}
+        className="absolute inset-[10%] h-[80%] w-[80%] object-contain"
+      />
+    </span>
   );
 }
 

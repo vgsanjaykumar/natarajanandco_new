@@ -25,6 +25,8 @@ so direct links and refreshes work on plain static hosting without rewrite rules
 | Brands · categories · products · services | `src/data/*.js` |
 | Home-page curation (which products are featured, project finder cards) | `src/data/home.js` |
 | Awards (photos + captions) | `src/data/awards.js` |
+| Gallery (shop photos, shown on the About page) | `src/data/gallery.js`, `src/components/about/Gallery.jsx` |
+| Site logo (navbar, footer, favicons, splash screen) | `public/logo/icon.png` — see `public/logo/README.md` |
 | Page titles, descriptions, JSON-LD, sitemap routes | `src/seo/routes.js` |
 | Colours, fonts, spacing, buttons, dark theme | `src/index.css`, `tailwind.config.js` |
 | Home sections | `src/components/home/` |
@@ -47,6 +49,25 @@ on the product page). To use a real photo, drop `<product-slug>.webp` into
 the illustration everywhere with no code change. Only use images you have permission to
 use (brand/dealer portal assets or your own photographs).
 
+Some Birla Opus product photos are instead referenced directly by path in
+`src/data/products.js` (an `image: "/images/products/birla-opus/<file>.webp"` line on
+the product entry) — both approaches work; use whichever the product already has.
+
+## Gallery photos
+
+`src/data/gallery.js` lists the "Around the Shop" photos on the About page. Each entry
+needs a `thumb` (small grid tile, ~640px wide) and `full` (lightbox image, ~1600px wide)
+WebP file in `public/img/gallery/`, named `<id>-thumb.webp` and `<id>.webp`. To add a
+photo: convert it to WebP at those two sizes, drop the files in, and add a matching
+`{ id, alt }` entry — `thumb`/`full` paths are built automatically.
+
+## Awards photos
+
+`src/data/awards.js` lists the recognitions shown on the About page (and the first three
+also appear on the Home page). Add a WebP photo to `public/img/awards/` and a matching
+`{ id, image, title, caption, partner }` entry to add another one. Captions should only
+state what is legible on the trophy, certificate or event backdrop itself.
+
 ## Things to confirm before going live
 
 - **"Over two decades"** (About page, Why-us section) — the previous site said 21 years,
@@ -58,6 +79,13 @@ use (brand/dealer portal assets or your own photographs).
   each product stores its source URL. No prices, coverage, warranty or ratings are shown.
 - **Contact form** — there is no backend, so the form composes the enquiry and opens
   WhatsApp or the visitor's email app. Nothing is silently discarded.
+- **New award photos** — 11 event/trophy photos were added to `src/data/awards.js`.
+  Captions were transcribed from what is legible in each photo (event name, place,
+  sometimes a date); a few are generic ("Pidilite Chairman's Club — recognition event")
+  where no more specific text was readable. Please check these read correctly.
+- **Gallery placement** — the "Around the Shop" gallery was added to the About page,
+  after Recognition. Move `<Gallery />` in `src/pages/About.jsx` (or to another page) if
+  you'd prefer it elsewhere, e.g. the Home page.
 - **Google Maps embed** — check it displays on the live site.
 - **Stock / brand names** — "Also on our shelves" (Roff, Sintex, Tenax, Padmashri) reuses
   logos that were on the old site; remove them in `src/data/brands.js` if not current.

@@ -4,7 +4,6 @@ import { FiMenu, FiPhone, FiX } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa6";
 import Logo from "../art/Logo.jsx";
 import Btn from "../ui/Btn.jsx";
-import ThemeToggle from "./ThemeToggle.jsx";
 import { PHONES, waLink } from "../../config/site.js";
 
 const LINKS = [
@@ -83,7 +82,6 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-1.5">
-          <ThemeToggle />
           <a
             href={PHONES.call.href}
             aria-label={`Call ${PHONES.call.display}`}

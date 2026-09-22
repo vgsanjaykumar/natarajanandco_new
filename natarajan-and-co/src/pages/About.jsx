@@ -5,6 +5,7 @@ import EnquiryCta from "../components/layout/EnquiryCta.jsx";
 import SmartImage from "../components/ui/SmartImage.jsx";
 import SectionHeading from "../components/ui/SectionHeading.jsx";
 import Reveal from "../components/ui/Reveal.jsx";
+import Gallery from "../components/about/Gallery.jsx";
 import awards from "../data/awards.js";
 import { metaForPath } from "../seo/routes.js";
 
@@ -110,7 +111,7 @@ export default function About() {
             id="recognition-heading"
             eyebrow="Recognition"
             title="Awards from our brand partners"
-            text="Trophies and a certificate from UltraTech and Birla White, photographed in our shop. Captions are as printed on the awards."
+            text="Trophies and certificates from UltraTech, Birla White and Pidilite, photographed in our shop. Captions are as printed on the awards or as shown on stage at the ceremony."
           />
           <ul className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3">
             {awards.map((a, i) => (
@@ -131,6 +132,8 @@ export default function About() {
           </ul>
         </div>
       </section>
+
+      <Gallery />
       <EnquiryCta title="Visit the shop or talk to the team" text="Drop by our Karaikudi store, call, or message us on WhatsApp — we are open every day." />
     </>
   );

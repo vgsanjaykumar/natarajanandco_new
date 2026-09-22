@@ -11,6 +11,7 @@ import products from "../src/data/products.js";
 import brands, { alsoStocked } from "../src/data/brands.js";
 import categories from "../src/data/categories.js";
 import awards from "../src/data/awards.js";
+import gallery from "../src/data/gallery.js";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dist = join(root, "dist");
@@ -78,6 +79,7 @@ const assets = [
   ...alsoStocked.map((b) => b.logo),
   ...products.map((p) => p.image),
   ...awards.map((a) => a.image),
+  ...gallery.flatMap((g) => [g.thumb, g.full]),
 ].filter(Boolean);
 for (const a of new Set(assets)) if (!existsSync(join(dist, a))) fail(`missing asset ${a}`);
 

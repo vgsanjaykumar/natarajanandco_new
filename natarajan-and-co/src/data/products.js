@@ -29,12 +29,11 @@ const products = [
     suitableFor: ["Structural work", "Cement surfaces"],
     application: "Residential home construction, small and mid-scale commercial buildings, general masonry and structural work.",
     tags: ["cement", "construction", "opc", "building material"],
-    image: "/images/products/birla-opus/ultratech-cement.webp",
   }),
   p({
     slug: "ultratech-building-solutions", name: "UltraTech Building Solutions", brandSlug: "ultratech", brand: "UltraTech",
     category: "building-solutions",
-    image: "/images/products/birla-opus/ultratech-building-solutions.png", imageKind: "photo",
+    image: "/img/ultratech-building-products.webp", imageKind: "photo",
     shortDescription: "The broader range of UltraTech building-solution products we stock alongside cement.",
     description:
       "Beyond core cement, UltraTech offers a wider building-solutions range designed to support different stages of construction. As part of our dealership, we help customers identify the right UltraTech products for their specific project needs.",
@@ -528,7 +527,6 @@ const products = [
     features: ["White interior primer", "Applied after putty in the One system"],
     suitableFor: ["Interior walls"],
     tags: ["primer", "interior", "one", "white primer"],
-    image: "/images/products/birla-opus/one-pro-white-smooth-primer.webp",
   }),
   opus({
     slug: "birla-opus-calista-perfect-choice-primer", name: "Calista Perfect Choice Primer", category: "primers", subCategory: "Exterior primer",
